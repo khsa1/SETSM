@@ -2,7 +2,7 @@
 ARG VERSION=latest
 FROM ubuntu:$VERSION as builder
 
-RUN apt-get update & apt-get install --no-install-recommends -y \
+RUN apt-get update && apt-get install --no-install-recommends -y \
     libgeotiff-dev \
     libgeotiff2 \
     g++ \
