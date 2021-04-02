@@ -4,7 +4,7 @@ FROM ubuntu:$VERSION as builder
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
     libgeotiff-dev \
-    libgeotiff2 \
+    libgeotiff[0-9]+ \
     g++ \
     git \
     ca-certificates \
@@ -21,7 +21,7 @@ RUN make
 FROM ubuntu:$VERSION as runner
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
-        libgeotiff2 \
+        libgeotiff[0-9]+ \
         libgomp1 \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
