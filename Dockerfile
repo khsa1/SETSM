@@ -16,8 +16,17 @@ WORKDIR /opt
 COPY ./* /opt/
 ENV PATH=:"/opt:${PATH}"
 
-RUN ["make"]
+RUN make
 
 FROM ubuntu:$VERSION as runner
 
-CMD ["echo", "testing"]
+RUN apt-get update && apt-get install --no-install-recommends -y \
+        libgeotiff2 \
+        libgomp1 \
+    && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN mkdir /opt/SETSM
+COPY setsm /opt/setsm/
+ENV PATH="/opt/setsm:${PATH}"
+
+CMD setsm
