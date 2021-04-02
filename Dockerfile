@@ -16,7 +16,6 @@ WORKDIR /opt
 COPY ./* /opt/
 ENV PATH="/opt:${PATH}"
 
-RUN ["which", "libgeotiff"]
 RUN ["whereis", "libgeotiff"]
 RUN ["make"]
 
