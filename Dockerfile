@@ -16,8 +16,8 @@ WORKDIR /opt
 COPY ./* /opt/
 ENV PATH="/opt:${PATH}"
 
-RUN pwd
-RUN ["ls", "-l"]
+RUN ["which", "libgeotiff"]
+RUN ["whereis", "libgeotiff"]
 RUN ["make"]
 
 FROM ubuntu:$VERSION as runner
