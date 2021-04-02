@@ -18,7 +18,7 @@ ENV PATH="/opt:${PATH}"
 
 RUN apt-get check
 RUN ["head", "-n", "15", "Makefile"]
-RUN ["make", "GEOTIFFPATH=-I/usr/include/geotiff"]
+RUN ["make", "INCS=/usr/include/geotiff"]
 
 FROM ubuntu:$VERSION as runner
 

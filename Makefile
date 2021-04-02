@@ -4,16 +4,16 @@
 
 # If libtiff is installed in a nonstandard location you must edit 
 # TIFFPATH and uncomment the following three lines.
-TIFFPATH=/projects/sciteam/bazu/setsm/lib/tiff-4.0.3-cray
-TIFFINC=-I$(TIFFPATH)/include
-TIFFLIB=-L$(TIFFPATH)/lib
+# TIFFPATH=/projects/sciteam/bazu/setsm/lib/tiff-4.0.3-cray
+# TIFFINC=-I$(TIFFPATH)/include
+# TIFFLIB=-L$(TIFFPATH)/lib
 
 # If libgeotiff is installed in a nonstandard location you must edit
-# GEOTIFFPATH and uncomment the following three lines.
-GEOTIFFPATH=/projects/sciteam/bazu/setsm/lib/geotiff
-GEOTIFFINC=-I$(GEOTIFFPATH)/include
-GEOTIFFLIB=-L$(GEOTIFFPATH)/lib
-PROJLIB=-L/projects/sciteam/bazu/setsm/lib/proj/lib
+# # GEOTIFFPATH and uncomment the following three lines.
+# GEOTIFFPATH=/projects/sciteam/bazu/setsm/lib/geotiff
+# GEOTIFFINC=-I$(GEOTIFFPATH)/include
+# GEOTIFFLIB=-L$(GEOTIFFPATH)/lib
+# PROJLIB=-L/projects/sciteam/bazu/setsm/lib/proj/lib
 
 MPIFLAGS = -DBUILDMPI
 
