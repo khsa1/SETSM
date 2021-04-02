@@ -14,7 +14,9 @@ RUN apt-get update & apt-get install --no-install-recommends -y \
 WORKDIR /opt
 
 COPY ./* /opt/
-ENV PATH=:"opt/:${PATH}"
+ENV PATH=:"/opt:${PATH}"
+
+RUN ["make"]
 
 FROM ubuntu:$VERSION as runner
 
