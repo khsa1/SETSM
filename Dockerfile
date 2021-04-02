@@ -16,7 +16,7 @@ WORKDIR /opt
 COPY ./* /opt/
 ENV PATH="/opt:${PATH}"
 
-RUN ["whereis", "libgeotiff"]
+RUN ["dpkg", "-L", "libgeotiff"]
 RUN ["make"]
 
 FROM ubuntu:$VERSION as runner
