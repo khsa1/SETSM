@@ -17,7 +17,7 @@
 
 MPIFLAGS = -DBUILDMPI
 
-INCS = $(TIFFINC) $(GEOTIFFINC)
+INCS = -I/usr/include/geotiff
 LDFLAGS = $(TIFFLIB) $(GEOTIFFLIB) $(PROJLIB)
 
 COMMON_OBJS = CoordConversion.o SubFunctions.o LSF.o Orthogeneration.o Coregistration.o SDM.o setsmgeo.o grid.o grid_triangulation.o edge_list.o
