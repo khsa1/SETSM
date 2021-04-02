@@ -16,6 +16,7 @@ WORKDIR /opt
 COPY ./* /opt/
 ENV PATH="/opt:${PATH}"
 
+RUN apt-get check
 RUN ["dpkg", "-L", "libgeotiff"]
 RUN ["make"]
 
