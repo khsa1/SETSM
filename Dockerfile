@@ -16,9 +16,7 @@ WORKDIR /opt
 COPY ./* /opt/
 ENV PATH="/opt:${PATH}"
 
-RUN apt-get check
-RUN ["head", "-n", "15", "Makefile"]
-RUN ["make", "INCS=/usr/include/geotiff"]
+RUN ["make", "INCS=-I/usr/include/geotiff"]
 
 FROM ubuntu:$VERSION as runner
 
