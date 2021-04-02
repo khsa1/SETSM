@@ -17,8 +17,7 @@ COPY ./* /opt/
 ENV PATH="/opt:${PATH}"
 
 RUN apt-get check
-RUN ["whereis", "libgeotiff"]
-RUN ["whereis", "libgeotiff-dev"]
+RUN ["head", "Makefile"]
 RUN ["make"]
 
 FROM ubuntu:$VERSION as runner
