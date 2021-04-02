@@ -16,7 +16,8 @@ WORKDIR /opt
 COPY ./* /opt/
 ENV PATH="/opt:${PATH}"
 
-RUN ["ls -l"]
+RUN pwd
+RUN ["ls", "-l"]
 RUN make
 
 FROM ubuntu:$VERSION as runner
