@@ -25,7 +25,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
         libgomp1 \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN mkdir /opt/SETSM
+RUN mkdir /opt/setsm
 COPY setsm /opt/setsm/
 ENV PATH="/opt/setsm:${PATH}"
 
