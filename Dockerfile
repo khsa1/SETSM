@@ -2,7 +2,7 @@
 ARG VERSION=latest
 FROM ubuntu:$VERSION as builder
 
-RUN apt-get update && apt-get install --no-install-recommends -y \
+RUN apt-get update && apt-get install -y \
     libgeotiff-dev \
     libgeotiff[0-9]+ \
     g++ \
@@ -14,7 +14,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 WORKDIR /opt
 
 COPY ./* /opt/
-ENV PATH=:"/opt:${PATH}"
+ENV PATH="/opt:${PATH}"
 
 RUN make
 
