@@ -16,8 +16,8 @@ WORKDIR /opt
 
 COPY ./* /opt/
 ENV PATH="/opt:${PATH}"
-
-RUN ["make", "COMPILER=${COMPILER}", "INCS=-I/usr/include/geotiff"]
+RUN ["echo", "COMPILER=$COMPILER"]
+RUN ["make", "COMPILER=$COMPILER", "INCS=-I/usr/include/geotiff"]
 
 FROM ubuntu:$VERSION as runner
 
