@@ -1,5 +1,6 @@
 # Dockerfile for SETSM image
 ARG VERSION=latest
+ARG COMPILER=gnu
 FROM ubuntu:$VERSION as builder
 
 RUN apt-get update && apt-get install --no-install-recommends -y \
@@ -16,7 +17,7 @@ WORKDIR /opt
 COPY ./* /opt/
 ENV PATH="/opt:${PATH}"
 
-RUN ["make", "INCS=-I/usr/include/geotiff"]
+RUN ["make", "COMPILER=${COMPILER}", "INCS=-I/usr/include/geotiff"]
 
 FROM ubuntu:$VERSION as runner
 
