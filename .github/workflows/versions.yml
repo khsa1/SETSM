@@ -31,7 +31,7 @@ jobs:
           env:
             COMPILER=gnu
           build-args: COMPILER=$COMPILER
-          tags: ${{ format('chargje/setsm_fork:latest-{1}, chargje/setsm_fork:{0}-{1}', steps.get_version.outputs.VERSION), $COMPILER }}
+          tags: ${{ format('chargje/setsm_fork:latest-{1}, chargje/setsm_fork:{0}-{1}', steps.get_version.outputs.VERSION, $COMPILER) }}
       -
         name: Build and push Intel
         id: docker_build_intel
@@ -41,7 +41,7 @@ jobs:
           env:
             COMPILER=intel
           build-args: COMPILER=$COMPILER
-          tags: ${{ format('chargje/setsm_fork:latest-{1}, chargje/setsm_fork:{0}-{1}', steps.get_version.outputs.VERSION), $COMPILER }}
+          tags: ${{ format('chargje/setsm_fork:latest-{1}, chargje/setsm_fork:{0}-{1}', steps.get_version.outputs.VERSION, $COMPILER) }}
       -
         name: Build and push Cray
         id: docker_build_cray
@@ -51,5 +51,5 @@ jobs:
           env:
             COMPILER=cray
           build-args: COMPILER=$COMPILER
-          tags: ${{ format('chargje/setsm_fork:latest-{1}, chargje/setsm_fork:{0}-{1}', steps.get_version.outputs.VERSION), $COMPILER }}
+          tags: ${{ format('chargje/setsm_fork:latest-{1}, chargje/setsm_fork:{0}-{1}', steps.get_version.outputs.VERSION, $COMPILER) }}
       
