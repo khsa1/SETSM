@@ -26,30 +26,30 @@ jobs:
         name: Build and push GNU
         id: docker_build_gnu
         uses: docker/build-push-action@v2
+        env:
+            COMPILER=gnu
         with:
           push: true
-          env:
-            COMPILER=gnu
           build-args: COMPILER=$COMPILER
           tags: ${{ format('chargje/setsm_fork:latest-{1}, chargje/setsm_fork:{0}-{1}', steps.get_version.outputs.VERSION, $COMPILER) }}
       -
         name: Build and push Intel
         id: docker_build_intel
         uses: docker/build-push-action@v2
+        env:
+            COMPILER=intel
         with:
           push: true
-          env:
-            COMPILER=intel
           build-args: COMPILER=$COMPILER
           tags: ${{ format('chargje/setsm_fork:latest-{1}, chargje/setsm_fork:{0}-{1}', steps.get_version.outputs.VERSION, $COMPILER) }}
       -
         name: Build and push Cray
         id: docker_build_cray
         uses: docker/build-push-action@v2
+        env:
+            COMPILER=cray
         with:
           push: true
-          env:
-            COMPILER=cray
           build-args: COMPILER=$COMPILER
           tags: ${{ format('chargje/setsm_fork:latest-{1}, chargje/setsm_fork:{0}-{1}', steps.get_version.outputs.VERSION, $COMPILER) }}
       
