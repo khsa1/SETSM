@@ -1,6 +1,6 @@
 # Dockerfile for SETSM image
 ARG VERSION=latest
-ARG COMPILER=gnu
+ARG COMPILER=intel
 FROM ubuntu:$VERSION as builder
 
 ARG COMPILER
@@ -14,6 +14,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     ca-certificates \
     make \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
+
+RUN if [$COMPILER=="intel"]; then echo intel; fi
 
 WORKDIR /opt
 
