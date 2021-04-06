@@ -3,6 +3,9 @@ ARG VERSION=latest
 ARG COMPILER=gnu
 FROM ubuntu:$VERSION as builder
 
+ARG COMPILER
+ARG VERSION
+
 RUN apt-get update && apt-get install --no-install-recommends -y \
     libgeotiff-dev \
     libgeotiff[0-9]+ \
@@ -15,9 +18,10 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 WORKDIR /opt
 
 COPY ./* /opt/
+
 ENV PATH="/opt:${PATH}"
-RUN ["echo", $COMPILER]
-RUN ["COMPILER=$COMPILER", "make", "INCS=-I/usr/include/geotiff"]
+ENV COMPILER=$COMPILER
+RUN ["/bin/bash", "-c", "make COMPILER=$COMPILER INCS=-I/usr/include/geotiff"]
 
 FROM ubuntu:$VERSION as runner
 
