@@ -33,6 +33,9 @@ icpc -V; \
 echo **DONE**; \
 fi
 
+ENV PATH=$PATH
+echo $PATH
+
 WORKDIR /opt
 
 COPY ./* /opt/
