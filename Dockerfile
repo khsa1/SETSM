@@ -28,7 +28,6 @@ echo "deb https://apt.repos.intel.com/oneapi all main" | tee /etc/apt/sources.li
 apt update; \
 apt-get install -y intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic; \
 source /opt/intel/oneapi/setvars.sh; \
-which i | cut -d "/" -f -1; \
 echo $PATH; \
 icpc -V; \
 echo **DONE**; \
@@ -39,6 +38,7 @@ WORKDIR /opt
 COPY ./* /opt/
 
 ENV PATH="/opt:${PATH}"
+RUN echo $PATH
 ENV COMPILER=$COMPILER
 RUN ["/bin/bash", "-c", "make COMPILER=$COMPILER INCS=-I/usr/include/geotiff"]
 
