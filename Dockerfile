@@ -34,7 +34,7 @@ echo **DONE**; \
 fi
 
 ENV PATH=$PATH
-echo $PATH
+RUN echo $PATH
 
 WORKDIR /opt
 
