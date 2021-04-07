@@ -28,13 +28,13 @@ echo "deb https://apt.repos.intel.com/oneapi all main" | tee /etc/apt/sources.li
 apt update; \
 apt-get install -y intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic; \
 source /opt/intel/oneapi/setvars.sh; \
-echo $PATH; \
+ICPC_PATH=$PATH; \
+echo $ICPC_PATH; \
 icpc -V; \
 echo **DONE**; \
 fi
 
-ENV PATH=$PATH
-RUN echo $PATH
+RUN echo $ICPC_PATH
 
 WORKDIR /opt
 
