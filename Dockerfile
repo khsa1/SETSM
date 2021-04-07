@@ -27,7 +27,10 @@ rm GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB; \
 echo "deb https://apt.repos.intel.com/oneapi all main" | tee /etc/apt/sources.list.d/oneAPI.list; \
 apt update; \
 apt-get install -y intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic; \
-echo intel; \
+source /opt/intel/oneapi/setvars.sh; \
+which icpc; \
+icpc -V; \
+echo **DONE**; \
 fi
 
 WORKDIR /opt
