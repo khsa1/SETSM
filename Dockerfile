@@ -13,9 +13,22 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     git \
     ca-certificates \
     make \
+    wget \
+    gnupg2 \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN if [$COMPILER=="intel"]; then echo intel; fi
+RUN echo clear cache
+SHELL ["/bin/bash", "-c"]
+# If building Intel version, then install Intel compiler
+RUN if [ "$COMPILER" = 'intel' ]; then \
+wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB; \
+apt-key add GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB; \
+rm GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB; \
+echo "deb https://apt.repos.intel.com/oneapi all main" | tee /etc/apt/sources.list.d/oneAPI.list; \
+apt update; \
+apt-get install -y intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic; \
+echo intel; \
+fi
 
 WORKDIR /opt
 
