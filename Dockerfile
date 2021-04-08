@@ -31,11 +31,14 @@ apt-get install -y intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic; \
 source /opt/intel/oneapi/setvars.sh; \
 ICPC_PATH=$PATH; \
 echo $ICPC_PATH; \
+export PATH; \
 icpc -V; \
 echo **DONE**; \
 fi
 
 RUN echo $ICPC_PATH
+RUN echo "------------------"
+RUN echo $PATH
 
 WORKDIR /opt
 
