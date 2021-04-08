@@ -33,9 +33,6 @@ icpc -V; \
 echo **DONE**; \
 fi
 
-RUN echo "------------------"
-RUN cat /opt/pathvar
-
 WORKDIR /opt
 
 COPY ./* /opt/
