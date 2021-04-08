@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     gnupg2 \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN touch /opt/pathvar
+RUN touch /opt/compilerpath
 SHELL ["/bin/bash", "-c"]
 # If building Intel version, then install Intel compiler
 RUN if [ "$COMPILER" = 'intel' ]; then \
@@ -28,7 +28,7 @@ echo "deb https://apt.repos.intel.com/oneapi all main" | tee /etc/apt/sources.li
 apt update; \
 apt-get install -y intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic; \
 source /opt/intel/oneapi/setvars.sh; \
-echo $PATH > /opt/pathvar; \
+echo $PATH > /opt/compilerpath; \
 icpc -V; \
 echo **DONE**; \
 fi
@@ -43,7 +43,7 @@ COPY ./* /opt/
 ENV PATH="/opt:${PATH}"
 RUN echo $PATH
 ENV COMPILER=$COMPILER
-RUN ["/bin/bash", "-c", "make COMPILER=$COMPILER INCS=-I/usr/include/geotiff"]
+RUN ["/bin/bash", "-c", "PATH=\"$(cat compilerpath):$PATH\"; make COMPILER=$COMPILER INCS=-I/usr/include/geotiff"]
 
 FROM ubuntu:$VERSION as runner
 
