@@ -43,7 +43,7 @@ COPY ./* /opt/
 ENV PATH="/opt:${PATH}"
 RUN echo $PATH
 ENV COMPILER=$COMPILER
-RUN ["/bin/bash", "-c", "PATH=\"$(cat compilerpath):$PATH\"; make COMPILER=$COMPILER INCS=-I/usr/include/geotiff"]
+RUN PATH="$(cat compilerpath):$PATH"; make COMPILER=$COMPILER INCS=-I/usr/include/geotiff
 
 FROM ubuntu:$VERSION as runner
 
