@@ -19,7 +19,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 RUN echo clear cache
 SHELL ["/bin/bash", "-c"]
-ENV ICPC_PATH
+ENV ICPC_PATH = ""
 # If building Intel version, then install Intel compiler
 RUN if [ "$COMPILER" = 'intel' ]; then \
 wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB; \
