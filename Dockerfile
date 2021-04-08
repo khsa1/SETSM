@@ -19,7 +19,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 RUN echo clear cache
 SHELL ["/bin/bash", "-c"]
-ENV ICPC_PATH = ""
 # If building Intel version, then install Intel compiler
 RUN if [ "$COMPILER" = 'intel' ]; then \
 wget https://apt.repos.intel.com/intel-gpg-keys/GPG-PUB-KEY-INTEL-SW-PRODUCTS.PUB; \
@@ -29,16 +28,13 @@ echo "deb https://apt.repos.intel.com/oneapi all main" | tee /etc/apt/sources.li
 apt update; \
 apt-get install -y intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic; \
 source /opt/intel/oneapi/setvars.sh; \
-ICPC_PATH=$PATH; \
-echo $ICPC_PATH; \
-export PATH; \
+echo $PATH > /opt/pathvar; \
 icpc -V; \
 echo **DONE**; \
 fi
 
-RUN echo $ICPC_PATH
 RUN echo "------------------"
-RUN echo $PATH
+RUN cat /opt/pathvar
 
 WORKDIR /opt
 
