@@ -17,7 +17,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     gnupg2 \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-RUN echo clear cache
+RUN touch /opt/pathvar
 SHELL ["/bin/bash", "-c"]
 # If building Intel version, then install Intel compiler
 RUN if [ "$COMPILER" = 'intel' ]; then \
