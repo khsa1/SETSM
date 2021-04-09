@@ -44,7 +44,7 @@ apt update; \
 apt-get install -y intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic; \
 source /opt/intel/oneapi/setvars.sh; \
 echo $PATH > /opt/compilerpath; \
-whereis libiomp5.so \;
+echo $LD_LIBRARY_PATH; \
 icpc -V; \
 echo **DONE**; \
 fi
