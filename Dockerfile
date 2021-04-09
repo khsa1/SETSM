@@ -43,6 +43,7 @@ echo "deb https://apt.repos.intel.com/oneapi all main" | tee /etc/apt/sources.li
 apt update; \
 apt-get install -y intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic; \
 source /opt/intel/oneapi/setvars.sh; \
+source /opt/intel/bin/compilervars.sh intel64; \
 echo $PATH > /opt/compilerpath; \
 echo $LD_LIBRARY_PATH; \
 icpc -V; \
