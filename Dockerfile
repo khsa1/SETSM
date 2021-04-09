@@ -44,8 +44,7 @@ apt update; \
 apt-get install -y intel-oneapi-compiler-dpcpp-cpp-and-cpp-classic; \
 source /opt/intel/oneapi/setvars.sh; \
 echo $PATH > /opt/compilerpath; \
-
-echo *** LIBRARY PATHS ***
+echo *** LIBRARY PATHS ***; \
 ls -l /opt/intel/oneapi/compiler/2021.2.0/linux/lib; \
 ls -l /opt/intel/oneapi/compiler/2021.2.0/linux/compiler/lib; \
 icpc -V; \
