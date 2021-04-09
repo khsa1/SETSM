@@ -46,7 +46,7 @@ source /opt/intel/oneapi/setvars.sh; \
 echo $PATH > /opt/compilerpath; \
 ls /opt/intel; \
 echo "*** LIBRARY PATHS ***"; \
-ls -l /opt/intel/oneapi/compiler/2021.2.0/linux/lib; \
+echo $LD_LIBRARY_PATH; \
 echo " --- "; \
 apt-cache pkgnames intel | grep libiomp; \
 ls -l /opt/intel/oneapi/compiler/2021.2.0/linux/lib/x64; \
