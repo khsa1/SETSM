@@ -32,7 +32,7 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Show g++ version
-g++ --version
+RUN g++ --version
 
 # Create file that holds compiler specific paths
 RUN touch /opt/compilerpath
