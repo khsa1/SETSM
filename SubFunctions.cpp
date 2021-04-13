@@ -1913,6 +1913,9 @@ void OpenXMLFile_orientation(char* _filename, ImageInfo *Iinfo)
                     fgets(linestr,sizeof(linestr),pFile);
                     pos1 = strstr(linestr,">")+1;
                     pos2 = strtok(pos1,"<");
+                    printf("**** DEBUG ****\n");
+                    printf("pos1: %s\npos2: %s\n", pos1, pos2);
+                    printf("***************\n");
                     UL[i]           = atof(pos2);
                     Iinfo->UL[i]    = UL[i];
                     
@@ -1995,6 +1998,10 @@ void OpenXMLFile_orientation(char* _filename, ImageInfo *Iinfo)
                         pos1 = strstr(linestr1,">")+1;
                         pos2 = strtok(pos1,"<");
                         MSATAz          = atof(pos2);
+                        printf("**** DEBUG ****\n");
+                        printf("pos1: %s\npos2: %s\n", pos1, pos2);
+                        printf("MSATAz: %f\n", MSATAz);
+                        printf("***************\n");
                     }
                     if(strcmp(token,"<MEANSATEL") == 0)
                     {
