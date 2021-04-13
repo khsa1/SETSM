@@ -1883,7 +1883,7 @@ int SETSMmainfunction(TransParam *return_param, char* _filename, ARGINFO args, c
                 }
                 else
                 {
-                    for (int i = 0; ti < proinfo->number_of_images; i++) {
+                    for (int ti = 0; ti < proinfo->number_of_images; ti++) {
                         image_info[ti].Mean_sat_azimuth_angle = 0.0;
                         image_info[ti].Mean_sat_elevation = 0.0;
                     }
