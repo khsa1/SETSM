@@ -6,7 +6,7 @@
 # includes required dependencies
 
 # Command Line arguments
-ARG VERSION=latest
+ARG VERSION=16.04
 ARG COMPILER=gnu
 
 # ------------- BUILD STAGE ------------- #
@@ -33,6 +33,9 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 
 # Show g++ version
 RUN g++ --version
+
+# Find glibc version
+RUN apt search glibc
 
 # Create file that holds compiler specific paths
 RUN touch /opt/compilerpath
