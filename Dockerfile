@@ -21,7 +21,6 @@ SHELL ["/bin/bash", "-c"]
 
 # Bring in dependencies
 RUN apt-get update && apt-get install --no-install-recommends -y \
-    libproj \
     libgeotiff-dev \
     libgeotiff[0-9]+ \
     g++ \
@@ -37,6 +36,7 @@ RUN g++ --version
 
 # Find glibc version
 RUN apt search glibc
+RUN apt-get install libproj
 
 # Create file that holds compiler specific paths
 RUN touch /opt/compilerpath
