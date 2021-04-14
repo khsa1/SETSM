@@ -21,6 +21,7 @@ SHELL ["/bin/bash", "-c"]
 
 # Bring in dependencies
 RUN apt-get update && apt-get install --no-install-recommends -y \
+    libproj \
     libgeotiff-dev \
     libgeotiff[0-9]+ \
     g++ \
