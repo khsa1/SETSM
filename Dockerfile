@@ -35,7 +35,8 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
 RUN g++ --version
 
 # Find glibc version
-RUN apt search glibc
+RUN apt search glibc 
+RUN apt search libproj
 
 # Create file that holds compiler specific paths
 RUN touch /opt/compilerpath
