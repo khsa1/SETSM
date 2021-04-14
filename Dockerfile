@@ -29,7 +29,6 @@ RUN apt-get update && apt-get install --no-install-recommends -y \
     make \
     wget \
     gnupg2 \
-    libproj \
     && apt-get clean && rm -rf /var/lib/apt/lists/*
 
 # Show g++ version
