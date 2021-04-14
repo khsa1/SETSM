@@ -36,7 +36,7 @@ RUN g++ --version
 
 # Find glibc version
 RUN apt search glibc
-RUN apt search libproj
+RUN apt search proj-dev*
 RUN ls -l /usr/lib
 
 # Create file that holds compiler specific paths
